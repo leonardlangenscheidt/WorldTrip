@@ -1,0 +1,46 @@
+
+<h1>Listing stops</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Country</th>
+			<th>City</th>
+			<th>Latitude</th>
+			<th>Longitude</th>
+			<th>Visited</th>
+			<% if signed_in? %>
+				<th></th>
+				<th></th>
+			<% end %>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @stops.each do |stop| %>
+			<tr>
+				<td><%= stop.country %></td>
+				<td><%= link_to stop.city, stop %></td>
+				<td><%= stop.latitude %></td>
+				<td><%= stop.longitude %></td>
+				<td><%= stop.visited %></td>
+				<% if signed_in? %>
+					<td><%= link_to 'Edit', edit_stop_path(stop) %></td>
+					<td><%= link_to 'Destroy', stop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stop', new_stop_path %><br>
+
+<div style="width: 800px; heigth: 400px; position: relative">
+	<% @stops.each do |stop| %>
+		<div class="com" style="left: <%=stop.longitude%>%; top: <%=stop.latitude%>%;"><%= link_to stop.city, stop, style:"background:#bbb" %></div>
+	<% end%>
+
+	<%= image_tag 'worldmap.png', style:"width:100%;"%>
+</div>

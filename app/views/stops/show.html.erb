@@ -1,0 +1,88 @@
+<h1>Kickass stop!</h1>
+
+<p>
+	<strong>Country:</strong>
+	<%= @stop.country %>
+</p>
+
+<p>
+	<strong>City:</strong>
+	<%= @stop.city %>
+</p>
+
+<p>
+	<strong>Latitude:</strong>
+	<%= @stop.latitude %>
+</p>
+
+<p>
+	<strong>Longitude:</strong>
+	<%= @stop.longitude %>
+</p>
+
+<p>
+	<strong>Visited:</strong>
+	<%= @stop.visited %>
+</p>
+
+<% if @stop.visited %>
+	<% @stop.posts.each do |post| %>
+		<p><%= post.text %></p>
+		<p><%= image_tag post.image.url(:medium) %></p>
+	<% end %>
+<%end%>
+
+<% if signed_in? %>
+	<%= link_to 'Add Post', new_post_path(:stop_id=>@stop.id) %>
+	<%= link_to 'Complete Stop', "/stops/#{@stop.id}/visit", :confirm=>'Are you sure? Only complete after posting!' %>
+<% end %>
+
+<h1>Listing comments</h1>
+
+<div class="commentbox">
+	<h3>New comment</h3>
+
+	<%= form_for(@comment) do |f| %>
+		<% if @comment.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+				<ul>
+				<% @comment.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<div class="field">
+			<%= f.text_field :name, :placeholder => "Name" %>
+		</div>
+		<div class="field">
+			<%= f.text_area :text, :placeholder => "What do you recommend?", :rows=>5, :cols=>60 %>
+		</div>
+		<div class="field hidden">
+			<%= f.label :stop_id %><br>
+			<%= f.number_field :stop_id, :value => @stop.id %>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	<% end %>
+</div>
+
+<% @comments.each do |comment| %>
+	<% if comment.stop == @stop %>
+		<div class="commentbox">
+			<p><strong><%= comment.name %> says:</strong></p>
+			<p><%= comment.text %></p>
+			<p><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+		</div>
+	<% end %>
+<% end %>
+
+
+<br>
+
+<%= link_to 'Edit', edit_stop_path(@stop) %> |
+<%= link_to 'Back', stops_path %>
