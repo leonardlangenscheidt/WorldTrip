@@ -1,46 +1,61 @@
 
-<h1>Listing stops</h1>
+<h1 class="centertext thin" style="font-size: 50px;">The Trip At Large</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit quis diam vel mollis. Etiam pretium dui non purus auctor tincidunt. Etiam egestas pretium erat, at bibendum dui euismod et. Proin mattis varius neque at porttitor. Praesent massa ipsum, pharetra bibendum malesuada nec, hendrerit vel sem. Donec euismod dolor ut velit pellentesque dictum. Sed eros arcu, suscipit sed euismod eu, elementum at ligula. Duis ut lobortis velit, id feugiat eros. Aliquam at vestibulum leo, at consequat neque.<p>
 
-<table>
-	<thead>
-		<tr>
-			<th>Country</th>
-			<th>City</th>
-			<th>Latitude</th>
-			<th>Longitude</th>
-			<th>Visited</th>
-			<% if signed_in? %>
-				<th></th>
-				<th></th>
-			<% end %>
-		</tr>
-	</thead>
 
-	<tbody>
-		<% @stops.each do |stop| %>
-			<tr>
-				<td><%= stop.country %></td>
-				<td><%= link_to stop.city, stop %></td>
-				<td><%= stop.latitude %></td>
-				<td><%= stop.longitude %></td>
-				<td><%= stop.visited %></td>
-				<% if signed_in? %>
-					<td><%= link_to 'Edit', edit_stop_path(stop) %></td>
-					<td><%= link_to 'Destroy', stop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-				<% end %>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Stop', new_stop_path %><br>
-
-<div style="width: 800px; heigth: 400px; position: relative">
+<div style="width: 1000px; heigth: 500px; position: relative; margin: 0px auto;">
 	<% @stops.each do |stop| %>
-		<div class="com" style="left: <%=stop.longitude%>%; top: <%=stop.latitude%>%;"><%= link_to stop.city, stop, style:"background:#bbb" %></div>
+		<div class="com" style="left: <%=stop.longitude%>%; top: <%=stop.latitude%>%;">
+			<a href="/stops/<%=stop.id%>">
+				<%if stop.visited == true %>
+					<%= image_tag 'greenstar.png', class:"stars"%>
+				<%else%>
+					<%= image_tag 'star.png', class:"stars"%>
+				<%end%>
+				<%=stop.city%>
+			</a>
+		</div>
 	<% end%>
+
 
 	<%= image_tag 'worldmap.png', style:"width:100%;"%>
 </div>
+
+
+<% if signed_in? %>
+	<table>
+		<thead>
+			<tr>
+				<th>Country</th>
+				<th>City</th>
+				<th>Latitude</th>
+				<th>Longitude</th>
+				<th>Visited</th>
+				<% if signed_in? %>
+					<th></th>
+					<th></th>
+				<% end %>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @stops.each do |stop| %>
+				<tr>
+					<td><%= stop.country %></td>
+					<td><%= link_to stop.city, stop %></td>
+					<td><%= stop.latitude %></td>
+					<td><%= stop.longitude %></td>
+					<td><%= stop.visited %></td>
+					<% if signed_in? %>
+						<td><%= link_to 'Edit', edit_stop_path(stop) %></td>
+						<td><%= link_to 'Destroy', stop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					<% end %>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+	<br>
+
+	<%= link_to 'New Stop', new_stop_path %><br>
+<% end %>
