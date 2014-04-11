@@ -5,6 +5,8 @@ class StopsController < ApplicationController
 	# GET /stops.json
 	def index
 		@stops = Stop.all
+		@comment = Comment.new
+		@comments = Comment.all
 	end
 
 	# GET /stops/1

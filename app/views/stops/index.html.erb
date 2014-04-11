@@ -37,9 +37,56 @@
 	<% end%>
 </div>
 
+<p class="column" style="margin-top: 50px;">For city-specific recommendation, please visit its page and comment there. If you have any recommendations for the trip as a whole, please do share below!</p>
+
+<div class="commentbox column">
+	<h3>New comment</h3>
+
+	<%= form_for(@comment) do |f| %>
+		<% if @comment.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+				<ul>
+				<% @comment.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<div class="field">
+			<%= f.text_field :name, :placeholder => "Name" %>
+		</div>
+		<div class="field">
+			<%= f.text_area :text, :placeholder => "What do you recommend?", :rows=>5, :cols=>79 %>
+		</div>
+		<div class="field hidden">
+			<%= f.label :stop_id %><br>
+			<%= f.number_field :stop_id, :value => 999 %>
+		</div>
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	<% end %>
+</div>
 
 
 <% if signed_in? %>
+
+	<% @comments.each do |comment| %>
+		<% if comment.stop_id == 999 %>
+			<div class="commentbox column">
+				<h4><%= comment.name %> says:</h4>
+				<p style="margin: 30px 10px"><%= comment.text %></p>
+				<% if signed_in? %>
+					<p><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+				<% end %>
+			</div>
+		<% end %>
+	<% end %>
+
+
 	<table>
 		<thead>
 			<tr>

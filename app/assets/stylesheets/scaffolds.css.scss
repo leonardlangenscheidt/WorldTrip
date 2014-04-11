@@ -11,11 +11,13 @@
 }
 
 .divi {
-	width: 10%;
-	height: 100%;
 	background: url('http://i58.tinypic.com/o5p186.png');
-/*	http://i61.tinypic.com/fzajqc.png
-*/	position:relative;
+	background-repeat:repeat-y;
+            margin: 0px auto 0px auto;
+            width: 10%;
+        	padding: 1px;
+        	height: 100%;
+        	min-height: 100%;
 }
 
 #mapdiv {
@@ -71,24 +73,26 @@ h2 {
 }
 
 .comstyle {
-	padding: 2px;
+	padding: 1px 1px 2px 1px;
 	border: 1px black solid;
 	background:#fff;
-
 }
 
 .liststyle {
 	margin: 3px auto;
 	text-align:center;
-	min-width: 100px;
-	max-width: 150px;
+	width:100px;
 }
 
 p {
 	margin:30px 20%;
 }
 
-html,body { height:100%; }
+html,body {
+	margin: 0px;
+            padding: 0px;
+            height: 100%;
+}
 
 body {
 	background-color: #fff;

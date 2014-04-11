@@ -8,9 +8,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div style="float:left" class="divi"></div>
-	<div style="float:right" class="divi"></div>
-	<div>
+		<div style="float:left" class="divi"></div>
+		<div style="float:right" class="divi"></div>
+
+	<div style="width: 100%;
+        	padding: 0px;
+        	height: auto;
+        	min-height: auto;">
 		<% unless signed_in? %>
 			<%= link_to 'Sign In', new_user_session_path %>
 		<% else %>
