@@ -3,9 +3,9 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis blandit quis diam vel mollis. Etiam pretium dui non purus auctor tincidunt. Etiam egestas pretium erat, at bibendum dui euismod et. Proin mattis varius neque at porttitor. Praesent massa ipsum, pharetra bibendum malesuada nec, hendrerit vel sem. Donec euismod dolor ut velit pellentesque dictum. Sed eros arcu, suscipit sed euismod eu, elementum at ligula. Duis ut lobortis velit, id feugiat eros. Aliquam at vestibulum leo, at consequat neque.<p>
 
 
-<div style="width: 1000px; heigth: 500px; position: relative; margin: 0px auto;">
+<div id="mapdiv">
 	<% @stops.each do |stop| %>
-		<div class="com" style="left: <%=stop.longitude%>%; top: <%=stop.latitude%>%;">
+		<div class="com comstyle" style="left: <%=stop.longitude%>%; top: <%=stop.latitude%>%;">
 			<a href="/stops/<%=stop.id%>">
 				<%if stop.visited == true %>
 					<%= image_tag 'greenstar.png', class:"stars"%>
@@ -20,6 +20,23 @@
 
 	<%= image_tag 'worldmap.png', style:"width:100%;"%>
 </div>
+
+<div id="listdiv">
+	<p>These are the steps along the way. For a mapview, please extend your browser.</p>
+	<% @stops.each do |stop| %>
+		<div class="comstyle liststyle">
+			<a href="/stops/<%=stop.id%>">
+				<%if stop.visited == true %>
+					<%= image_tag 'greenstar.png', class:"stars"%>
+				<%else%>
+					<%= image_tag 'star.png', class:"stars"%>
+				<%end%>
+				<%=stop.city%>
+			</a>
+		</div>
+	<% end%>
+</div>
+
 
 
 <% if signed_in? %>

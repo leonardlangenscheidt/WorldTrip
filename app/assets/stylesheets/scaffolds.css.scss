@@ -13,9 +13,19 @@
 .divi {
 	width: 10%;
 	height: 100%;
-	background-color:black;
 	background: url('http://i58.tinypic.com/o5p186.png');
-	position:relative;
+/*	http://i61.tinypic.com/fzajqc.png
+*/	position:relative;
+}
+
+#mapdiv {
+	width: 800px;
+	height: 400px;
+	position: relative;
+	margin: 0px auto;
+}
+#listdiv {
+	display:none;
 }
 
 .hidden {
@@ -58,11 +68,20 @@ h2 {
 
 .com {
 	position: absolute;
-/*	width:0px;*/
-	display: inline;
+}
+
+.comstyle {
 	padding: 2px;
 	border: 1px black solid;
 	background:#fff;
+
+}
+
+.liststyle {
+	margin: 3px auto;
+	text-align:center;
+	min-width: 100px;
+	max-width: 150px;
 }
 
 p {
@@ -142,5 +161,19 @@ div {
 	ul li {
 		font-size: 12px;
 		list-style: square;
+	}
+}
+@media (max-width: 1030px) {
+	#mapdiv {
+		display: none;
+	}
+	#listdiv {
+		display: initial;
+	}
+}
+@media (min-width: 1400px) {
+	#mapdiv {
+		width: 1100px;
+		height: 550px;
 	}
 }
