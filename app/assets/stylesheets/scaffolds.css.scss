@@ -19,7 +19,7 @@ $itgray: #AAAAAA;
 }
 
 .itblue {
-	color: $itblue !important;
+	color: $itblue;
 }
 
 .bold {
@@ -27,7 +27,7 @@ $itgray: #AAAAAA;
 }
 
 .itgray {
-	color: $itgray !important;
+	color: $itgray;
 }
 
 .divi {
@@ -144,10 +144,12 @@ pre {
 }
 
 a {
+	color: #000;
 	background:#fff;
 	text-decoration:none;
 
 	&:visited {
+		color: #666;
 	}
 	&:hover {
 	}

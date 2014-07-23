@@ -28,10 +28,10 @@
 			<a href="/stops/<%=stop.id%>">
 				<%if stop.visited == true %>
 					<%= image_tag 'greenstar.png', class:"stars"%>
-					<a href="/stops/<%=stop.id%>"><p class="itgray"><%=stop.city%></p></a>
+					<a href="/stops/<%=stop.id%>"><p class="itblue"><%=stop.city%></p></a>
 				<%else%>
 					<%= image_tag 'star.png', class:"stars"%>
-					<a href="/stops/<%=stop.id%>"><p class="itblue"><%=stop.city%></p></a>
+					<a href="/stops/<%=stop.id%>"><p class="itgray"><%=stop.city%></p></a>
 				<%end%>
 
 			</a>
