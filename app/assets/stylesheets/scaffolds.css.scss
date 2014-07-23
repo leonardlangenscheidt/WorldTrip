@@ -1,3 +1,6 @@
+$itblue: #030A2E;
+$itgray: #AAAAAA;
+
 * {
 	font-family: 'Lato', sans-serif !important;
 }
@@ -8,6 +11,23 @@
 
 #right {
 	float:right;
+}
+
+.nav {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.itblue {
+	color: $itblue !important;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.itgray {
+	color: $itgray !important;
 }
 
 .divi {
@@ -43,9 +63,17 @@
 	font-weight: 100;
 }
 
+.centertitle {
+	text-align: center;
+	font-size: 50px;
+}
+
 .centertext {
 	text-align: center;
+	font-size: 20px;
+	line-height: 33px;
 }
+
 
 .center {
 	margin: 0px auto;
@@ -76,6 +104,7 @@ h2 {
 	padding: 1px 1px 2px 1px;
 	border: 1px black solid;
 	background:#fff;
+
 }
 
 .liststyle {
@@ -115,17 +144,12 @@ pre {
 }
 
 a {
-	color: #000;
 	background:#fff;
 	text-decoration:none;
 
 	&:visited {
-		color: #666;
 	}
 	&:hover {
-/*		display: block;
-		color: #fff;
-		background-color: #000;*/
 	}
 }
 

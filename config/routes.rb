@@ -10,6 +10,8 @@ WorldTrip::Application.routes.draw do
   resources :stops
   get '/stops/:id/visit' => 'stops#visit'
 
+  get '/itinerary' => 'pages#itinerary'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
