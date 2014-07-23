@@ -16,9 +16,12 @@
 <% end %>
 
 <h2 class="column">Recommendations and Contacts</h2>
-<p class="column">Money and gems, maps, boat repair/building tools, maybe a big map, maybe some plans, sextant, telescope, a couple of firearms and a couple of swords, some balls and gunpowder, some kind of certificate or maybe a letter of marque, (money?) pouch, quill and ink, pot of something (glue? pitch?), whip, an oar, various pirate-esque accoutrements and possibly most importantly, a jug of rum.</p>
+<p class="column">In case you have any insight on places to go, people to see or things to do, we'd love to know.
+</p>
 
-<p class="column">If you have any other recommendations for our trip, please do share below!</p>
+<p class="column">Please share below or <a href="mailto:leonardlangenscheidt@gmail.com, lilycalaway@gmail.com" target="_top" style="text-decoration:underline;">
+email</a> us.
+</p>
 
 <div class="commentbox column">
 	<h3>New comment</h3>
@@ -66,6 +69,9 @@
 
 
 <br>
-
-<%= link_to 'Edit', edit_stop_path(@stop) %> |
-<%= link_to 'Back', stops_path %>
+<div class='footer'>
+	<% if signed_in? %>
+		<%= link_to 'Edit', edit_stop_path(@stop) %> |
+	<% end %>
+	<%= link_to 'Back', stops_path %>
+</div>

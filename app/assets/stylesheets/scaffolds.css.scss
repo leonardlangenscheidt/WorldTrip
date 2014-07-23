@@ -18,6 +18,12 @@ $itgray: #AAAAAA;
 	text-align: center;
 }
 
+.footer {
+	clear:both;
+	text-align: center;
+	margin-top: 50px;
+}
+
 .itblue {
 	color: $itblue;
 }
@@ -66,6 +72,8 @@ $itgray: #AAAAAA;
 .centertitle {
 	text-align: center;
 	font-size: 50px;
+	letter-spacing:7px;
+	margin:50px 0;
 }
 
 .centertext {
@@ -85,7 +93,11 @@ $itgray: #AAAAAA;
 	background-repeat:repeat;
 	padding: 1px 10px;
 	width: 500px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
+
 
 .column {
 	margin:10px 20%;
