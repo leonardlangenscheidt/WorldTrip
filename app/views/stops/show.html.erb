@@ -3,8 +3,8 @@
 
 <% if @stop.visited %>
 	<% @stop.posts.each do |post| %>
-		<p><%= post.text %></p>
-		<p><%= image_tag post.image.url(:medium) %></p>
+		<p class="column"><%= post.text %></p>
+		<p class="column"><%= image_tag post.image.url(:medium) %></p>
 	<% end %>
 <%end%>
 
