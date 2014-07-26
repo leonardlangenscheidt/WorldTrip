@@ -15,9 +15,11 @@
         	padding: 0px;
         	height: auto;
         	min-height: auto;">
-		<p class='nav'>
-			<%= link_to "Home", stops_path %>| <%= link_to "Itinerary", itinerary_path %>
-		</p>
+		<ul class='nav'>
+			<li><%= link_to "Home", stops_path %></li>
+			<li>|</li>
+			<li><%= link_to "Itinerary", itinerary_path %></li>
+		</ul>
 
 
 		<p class="notice"><%= notice %></p>
