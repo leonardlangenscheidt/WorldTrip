@@ -1,0 +1,28 @@
+
+<% @stops.each do |stop| %>
+	<% unless stop.comments.count == 0 %>
+		<h2 class='column' style="padding:100px 0px 10px;"><%=stop.city%></h2>
+
+		<table class='column'>
+			<thead>
+				<tr>
+					<th style="width:100px;">Name</th>
+					<th style="width:350px;">Text</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% stop.comments.each do |comment| %>
+					<tr>
+						<td><%= comment.name %></td>
+						<td><%= comment.text %></td>
+						<td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+		<br>
+	<%end%>
+<%end%>

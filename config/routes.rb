@@ -1,4 +1,4 @@
-WorldTrip::Application.routes.draw do
+  WorldTrip::Application.routes.draw do
 
   devise_for :users
   resources :posts
@@ -11,6 +11,7 @@ WorldTrip::Application.routes.draw do
   get '/stops/:id/visit' => 'stops#visit'
 
   get '/itinerary' => 'pages#itinerary'
+  get '/allcomments' => 'pages#comments'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
